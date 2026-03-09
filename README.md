@@ -1,181 +1,113 @@
-# Mermaid Flowchart Editor
+<div align="center">
 
-A modern, browser-based flowchart editor built with React and Vite.  
-It lets you build diagrams visually and keeps them in sync with Mermaid code.
+# 🧩 Mermaid Flowchart Editor
 
-Anyone can clone and run this project locally – from complete beginners to experienced engineers. This guide walks through everything step‑by‑step.
+A modern, browser-based flowchart editor built with React and Vite.
+Build diagrams visually and keep them in sync with Mermaid code.
+
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES2024-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Node](https://img.shields.io/badge/Node.js-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Developed by](https://img.shields.io/badge/Developed%20by-Wafic%20Mikati-blue?style=flat)](https://github.com/waficmikati)
+
+</div>
 
 ---
 
-## 1. Prerequisites
+## ✨ Features
 
-You need:
+- **Visual drag‑and‑drop** — create and arrange flowchart nodes on an infinite canvas
+- **Live Mermaid sync** — every change updates the Mermaid code panel in real time; edit code to rebuild the diagram
+- **Rich interactions** — connect nodes, edit labels inline, multi‑select, pan, and zoom
+- **SVG export** — generate clean SVG output from your diagrams
+- **Zero backend** — runs entirely in the browser as a static site
 
-- **Node.js**: version **18 or later** (20+ recommended)
-- **npm**: comes with Node.js
-- A terminal:
-  - Windows: PowerShell or Command Prompt
-  - macOS / Linux: any shell (Terminal, zsh, bash, etc.)
-- A browser (Chrome, Edge, Firefox, Safari, etc.)
+---
 
-### 1.1. Check if Node.js is installed
+## 📋 Prerequisites
 
-In your terminal:
+| Requirement | Version |
+|-------------|---------|
+| **Node.js** | 18+ (20+ recommended) |
+| **npm** | Bundled with Node.js |
+| **Browser** | Any modern browser (Chrome, Edge, Firefox, Safari) |
+
+Verify your installation:
 
 ```bash
 node -v
 npm -v
 ```
 
-If those commands fail or show very old versions:
-
-- Install Node.js from the official website:  
-  `https://nodejs.org`
-  - Choose the **LTS** (Recommended) version.
-
-After installing, close and reopen your terminal, then run `node -v` again to confirm.
+> Don't have Node.js? Download the **LTS** version from [nodejs.org](https://nodejs.org).
 
 ---
 
-## 2. Getting the code
-
-### Option A – Clone with Git (recommended)
-
-In your terminal, choose a folder where you want the project to live, then:
+## 🚀 Quick Start
 
 ```bash
+# 1. Clone the repository
 git clone <REPO_URL>
 cd mermaid-editor
-```
 
-Replace `<REPO_URL>` with the URL of this repository (for example from GitHub).
-
-### Option B – Download ZIP
-
-1. Download the ZIP of the repository from your Git hosting service.
-2. Extract/unzip it.
-3. Open a terminal in the extracted folder (the one that contains `package.json`).
-
----
-
-## 3. Install dependencies
-
-From the project root (where `package.json` lives), run:
-
-```bash
+# 2. Install dependencies
 npm install
-```
 
-This will download all required packages listed in `package.json`, including:
-
-- `react`, `react-dom`
-- `vite` and the React plugin
-- ESLint and related tooling
-
-> If `npm install` fails, read the error message carefully. The most common issues are:
-> - Node.js version too old
-> - Network / proxy problems
-
----
-
-## 4. Running the app locally
-
-Once dependencies are installed, start the development server:
-
-```bash
+# 3. Start the development server
 npm run dev
 ```
 
-You should see output similar to:
-
-```text
-  VITE vX.X.X  ready in Xs
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-```
-
-### 4.1. Open in the browser
-
-1. Open your browser.
-2. Go to `http://localhost:5173` (or the URL shown in the terminal).
-
-You should see the Mermaid flowchart editor UI.
-
-### 4.2. Stopping the dev server
-
-- Go back to the terminal where `npm run dev` is running.
-- Press `Ctrl + C` to stop it.
+Open **http://localhost:5173** in your browser and you're ready to go.
 
 ---
 
-## 5. Building for production
-
-To create an optimized production build:
+## 🏗️ Production Build
 
 ```bash
+# Create an optimized build
 npm run build
-```
 
-This creates a `dist` folder with static files you can deploy to any static hosting service.
-
-To preview the production build locally:
-
-```bash
+# Preview locally
 npm run preview
 ```
 
-Then visit the URL printed in the terminal (usually `http://localhost:4173`).
+The `dist/` folder contains static files ready for deployment to any hosting service.
 
 ---
 
-## 6. Code structure (high level)
+## 🗂️ Project Structure
 
-Key files:
-
-- `src/main.jsx`  
-  - React entry point; mounts the app into `index.html`.
-- `src/App.jsx`  
-  - Main Mermaid editor UI and state management.
-- `src/graphUtils.js`  
-  - Graph constants and utilities (grid size, node sizing, layout helpers).
-- `src/geometryUtils.js`  
-  - Geometry helpers (node centers, connection points, bounds, SVG export).
-- `src/mermaidUtils.js`  
-  - Mermaid code generation and parsing utilities.
-- `src/App.css` / `src/index.css`  
-  - Styling for the editor.
-
-You do **not** need to touch these files to run the project, but this overview helps when you’re ready to modify or extend the editor.
+```
+src/
+├── main.jsx            # React entry point
+├── App.jsx             # Main editor UI and state management
+├── graphUtils.js       # Graph constants, node sizing, layout helpers
+├── geometryUtils.js    # Node centers, connection points, SVG export
+├── mermaidUtils.js     # Mermaid code generation and parsing
+├── App.css             # Editor styles
+└── index.css           # Global styles
+```
 
 ---
 
-## 7. Basic usage of the editor
+## 🎮 Usage Guide
 
-Once the app is running:
-
-- **Create nodes**: drag shapes from the left panel onto the canvas.
-- **Move nodes**: click a node to select it, then drag to move; hold Shift to select multiple.
-- **Connect nodes**: hover a node, drag from its highlighted text area to another node.
-- **Edit node text**: double‑click a node’s label, type, then press Enter or click outside.
-- **Edit connection labels**: double‑click a connection line to edit its label.
-- **Delete**:
-  - Use delete buttons on individual nodes/edges, or
-  - Select nodes/edges and press the `Delete` key.
-- **Pan**:
-  - Hold **right mouse button** and drag, **or**
-  - Hold **middle mouse button** and drag.
-- **Zoom**:
-  - Use the mouse wheel to zoom in/out.
-- **Mermaid code sync**:
-  - The right panel shows Mermaid code generated from your diagram.
-  - Edit the code and click **Apply** to rebuild the diagram from code.
+| Action | How |
+|--------|-----|
+| **Create node** | Drag a shape from the left panel onto the canvas |
+| **Move node** | Click to select, then drag; hold <kbd>Shift</kbd> to multi‑select |
+| **Connect nodes** | Hover a node and drag from its highlighted text area to another node |
+| **Edit label** | Double‑click a node or connection label |
+| **Delete** | Use the delete button, or select and press <kbd>Delete</kbd> |
+| **Pan** | Right‑click drag **or** middle‑click drag |
+| **Zoom** | Mouse wheel |
+| **Sync from code** | Edit the Mermaid code in the right panel and click **Apply** |
 
 ---
 
-## 8. Linting (optional, for contributors)
-
-To run ESLint:
+## 🧹 Linting
 
 ```bash
 npm run lint
@@ -185,63 +117,48 @@ Fix any reported issues before committing changes.
 
 ---
 
-## 9. Common problems & fixes
+## 🐛 Troubleshooting
 
-- **Port already in use (e.g. 5173)**  
-  Another process is using the dev server port.
-  - Either stop the other process, or
-  - Run Vite on a different port:
-    ```bash
-    npm run dev -- --port 5174
-    ```
+<details>
+<summary><strong>Port already in use</strong></summary>
 
-- **Blank page / white screen**  
-  - Check the browser console (F12 → Console) for errors.
-  - Check the terminal where `npm run dev` is running for stack traces.
+Stop the other process or run on a different port:
 
-- **`npm` not recognized / `node` not recognized** (Windows)  
-  - Node.js is not installed or not in your PATH.
-  - Re‑install Node.js from `https://nodejs.org` and restart your terminal.
+```bash
+npm run dev -- --port 5174
+```
+</details>
 
----
+<details>
+<summary><strong>Blank / white screen</strong></summary>
 
-## 10. Contributing
+- Check the browser console (<kbd>F12</kbd> → Console) for errors.
+- Check the terminal running the dev server for stack traces.
+</details>
 
-If you want to extend or change the editor:
+<details>
+<summary><strong><code>npm</code> or <code>node</code> not recognized (Windows)</strong></summary>
 
-1. **Fork** the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/my-change
-   ```
-3. Run `npm run dev` while you work.
-4. Keep code clean and run `npm run lint` before opening a pull request.
+Re‑install Node.js from [nodejs.org](https://nodejs.org) and restart your terminal.
+</details>
 
 ---
 
-## 11. Getting help
+## 🤝 Contributing
 
-If you run into setup or runtime issues:
+1. **Fork** the repository
+2. Create a feature branch — `git checkout -b feature/my-change`
+3. Develop with `npm run dev`
+4. Lint before opening a PR — `npm run lint`
 
-- Copy the **exact** error message from your terminal or browser console.
-- Note:
-  - Your OS (Windows/macOS/Linux)
-  - Your Node.js version (`node -v`)
-- Share that information when asking for help (issues, chat, etc.) so problems can be diagnosed quickly.
+---
 
-# React + Vite
+## 📄 License
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is licensed under the [MIT License](LICENSE).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<div align="center">
+  <sub>Built with ❤️ by <strong>Wafic Mikati</strong></sub>
+</div>
